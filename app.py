@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/pokemon/<data>', methods=['GET'])
 def main(data):
     try:
-        request = requests.get('https://pokeapi.co/api/v2/pokemon/' + data)
+        request = requests.get('https://pokeapi.co/api/v2/pokemon/' + data).json()
     
         if data.isdigit():
             data = "The Pokemon with id " + data + " is " + request['name'].capitalize() + "."
